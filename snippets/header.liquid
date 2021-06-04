@@ -5,6 +5,8 @@
   </a>
 
   {% include 'nav-list', handle: 'main-menu' %}
+
+  {% include 'currency-picker' %}
   
   <a href="/cart">
     {{ 'cart.button.count_html' | t: itemCount: cart.item_count }}
