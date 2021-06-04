@@ -16,7 +16,9 @@
     "list": {
       "products": "Our Products"
     },
-    "bottom": "©{{ date }}  InHouse, Inc."
+    "bottom": {
+      "copyright": "© {{ date }}  InHouse, Inc."
+    }
   },
   "collection": {
     "sort": {
