@@ -12,7 +12,7 @@ $(document).ready(function () {
 
       /* Saving the current price */
       $(moneySpanSelector).each(function () {
-        $(this).attr('data-currency-'+shopCurrency, $(this).html());
+        $(this).attr('data-currency-' + shopCurrency, $(this).html());
       });
 
       // If there's no cookie.
