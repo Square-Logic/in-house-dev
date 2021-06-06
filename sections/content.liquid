@@ -33,6 +33,10 @@
             {% endif %}
           </div>
 
+          {% for product in collection.products limit: block.settings.max_products %}
+            {% include 'product-card' %}
+          {% endfor %}
+
       {% endcase %}
     </div>
   {% endfor %}
