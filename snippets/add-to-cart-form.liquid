@@ -8,6 +8,10 @@
   {% assign has_multiple_options = true %}
 {% endif %}
 
+{% if has_multiple_variants %}
+  {% include 'get-variants-with-quantity-json' with products: product %}
+{% endif %}
+
 <form id="add-to-cart-form" action="/cart/add" method="post" enctype="multipart/form-data">
   {% if has_multiple_options or has_multiple_variants %}  
     <select id="productSelect">
