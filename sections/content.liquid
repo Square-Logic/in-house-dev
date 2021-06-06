@@ -3,6 +3,7 @@
     <div class="content-block-{{ block.type }}" {{ block.shopify_attributes }}>
       {% case block.type %}
         {% when 'collection' %}
+        <!-- Begin Collection Block -->
           {% assign collection = collections[block.settings.collection] %}
 
           <div class="collection-block-info">
@@ -36,6 +37,7 @@
           {% for product in collection.products limit: block.settings.max_products %}
             {% include 'product-card' %}
           {% endfor %}
+        <!-- End Collection Block -->
 
       {% endcase %}
     </div>
