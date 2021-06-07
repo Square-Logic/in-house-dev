@@ -87,5 +87,46 @@ $(document).ready(function () {
 
   currencyPicker.init();
 
+  // Add to Cart Form
+  let
+    addToCartFormSelector = '#add-to-cart-form',
+    productOptionSelector = addToCartFormSelector + ' [name*=option]';
+
+  let productForm = {
+    onProductOptionChanged: function (event) {
+      let
+        form = $(this).closest(addToCartFormSelector),
+        selectedVariant = productForm.getActiveVariant(form);
+    },
+    getActiveVariant: function (form) {
+      let
+        variants = JSON.parse(decodeURIComponent(form.attr('data-variants')));
+        formData = form.serializeArray();
+        formOptions = {
+          option1: null,
+          option2: null,
+          option3: null
+        }
+
+        $.each(formData, function(index, item) {
+          if (item.name.indexOf('option') !== -1) {
+            formOptions[item.name] = item.value
+          }
+        });
+
+        console.log(variants);
+        console.log(formData);
+        console.log(formOptions);
+    },
+    validate: function () {
+
+    },
+    init: function () {
+      $(document).on('change', productOptionSelector, productForm.onProductOptionChanged);
+    }
+  };
+
+  productForm.init();
+
 });
 
