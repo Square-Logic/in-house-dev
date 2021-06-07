@@ -138,8 +138,11 @@ $(document).ready(function () {
       if (canAddToCart) {
         variantId.val(selectedVariant.id);
         addToCartButton.prop('disabled', false);
+      } else {
+        variantId.val('');
+        addToCartButton.prop('disabled', true);
 
-        console.log(selectedVariant.id);
+        
       }
     },
     init: function () {
