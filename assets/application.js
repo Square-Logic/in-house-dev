@@ -165,5 +165,56 @@ $(document).ready(function () {
 
   productForm.init();
 
+
+  // Ajax API Functionality
+  let ajaxify = {
+    onAddToCart: function(event) {
+      event.preventDefault();
+
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: ajaxify.onCartUpdated,
+        error: ajaxify.onError
+      });
+    },
+    onCartUpdated: function() {
+      console.log('cart is updated');
+      // $.ajax({
+      //   type: 'GET',
+      //   url: '/cart',
+      //   context: document.body,
+      //   success: function(context) {
+      //     let
+      //       dataCartContents = $(context).find('.js-cart-page-contents'),
+      //       dataCartHtml = dataCartContents.html(),
+      //       dataCartItemCount = dataCartContents.attr('data-cart-item-count'),
+      //       miniCartContents = $('.js-mini-cart-contents'),
+      //       cartItemCount = $('.js-cart-item-count');
+
+      //     cartItemCount.text(dataCartItemCount);
+      //     miniCartContents.html(dataCartHtml);
+          
+      //     if (parseInt(dataCartItemCount) > 0) {
+      //       openCart();
+      //     } else {
+      //       closeCart();
+      //     }
+      //   }
+      // });
+    },
+    // onError: function(XMLHttpRequest, textStatus) {
+    //   let data = XMLHttpRequest.responseJSON;
+    //   alert(data.status + ' - ' + data.message + ': ' + data.description);
+    // },
+    init: function() {
+      $(document).on('submit', addToCartFormSelector, ajaxApiFunc.onAddToCart);
+    }
+  };
+
+  ajaxify.init();
+
 });
 
