@@ -180,37 +180,62 @@ $(document).ready(function () {
         error: ajaxify.onError
       });
     },
+    onLineRemoved: function(event) {
+      event.preventDefault();
+
+      let
+        removeLink = $(this),
+        removeQuery = removeLink.attr('href').split('change?')[1];
+        $.post('/cart/change.js', removeQuery, onCartUpdated, 'json');
+    },
     onCartUpdated: function() {
       console.log('cart is updated');
-      // $.ajax({
-      //   type: 'GET',
-      //   url: '/cart',
-      //   context: document.body,
-      //   success: function(context) {
-      //     let
-      //       dataCartContents = $(context).find('.js-cart-page-contents'),
-      //       dataCartHtml = dataCartContents.html(),
-      //       dataCartItemCount = dataCartContents.attr('data-cart-item-count'),
-      //       miniCartContents = $('.js-mini-cart-contents'),
-      //       cartItemCount = $('.js-cart-item-count');
+      $.ajax({
+        type: 'GET',
+        url: '/cart',
+        context: document.body,
+        success: function(context) {
+          let
+            dataCartContents = $(context).find('.js-cart-page-contents'),
+            dataCartHtml = dataCartContents.html(),
+            dataCartItemCount = dataCartContents.attr('data-cart-item-count'),
+            miniCartContents = $('.js-mini-cart-contents'),
+            cartItemCount = $('.js-cart-item-count');
 
-      //     cartItemCount.text(dataCartItemCount);
-      //     miniCartContents.html(dataCartHtml);
+          cartItemCount.text(dataCartItemCount);
+          miniCartContents.html(dataCartHtml);
           
-      //     if (parseInt(dataCartItemCount) > 0) {
-      //       openCart();
-      //     } else {
-      //       closeCart();
-      //     }
-      //   }
-      // });
+          if (parseInt(dataCartItemCount) > 0) {
+            ajaxify.openCart();
+          } else {
+            ajaxify.closeCart();
+          }
+        }
+      });
     },
     // onError: function(XMLHttpRequest, textStatus) {
     //   let data = XMLHttpRequest.responseJSON;
     //   alert(data.status + ' - ' + data.message + ': ' + data.description);
     // },
+    onCartButtonClick: function(event) {
+      event.preventDefault();
+
+      let isCartOpen = $('html').hasClass('mini-cart-open');
+
+      if (!isCartOpen) {
+        this.openCart();
+      } else {
+        this.closeCart();
+      }
+    },
+    openCart: function() {
+      $('html').addClass('mini-cart-open');
+    },
+    closeCart: function() {
+      $('html').removeClass('mini-cart-open');
+    },
     init: function() {
-      $(document).on('submit', addToCartFormSelector, ajaxApiFunc.onAddToCart);
+      $(document).on('submit', addToCartFormSelector, ajaxify.onAddToCart);
     }
   };
 
