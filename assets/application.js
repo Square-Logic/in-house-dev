@@ -140,9 +140,7 @@ $(document).ready(function () {
         addToCartButton.prop('disabled', false);
       } else {
         variantId.val('');
-        addToCartButton.prop('disabled', true);
-
-        
+        addToCartButton.prop('disabled', true);        
       }
     },
     init: function () {
