@@ -43,7 +43,7 @@
     {% endfor %}
   {% endif %}
 
-  <input class="js-variant-id" type="hidden" name="id" value="{% if has_selected_variant %}{{ product.selected_variant.id }} {% elsif has_multiple_variants != true %}{{ product.variants.first.id }}{% endif %}">
+  <input class="js-variant-id" type="hidden" name="id" value="{% if has_selected_variant %}{{ product.selected_variant.id }}{% elsif has_multiple_variants != true %}{{ product.variants.first.id }}{% endif %}">
 
   <span class="js-price" data-default-price="{{ product.price | money }}">{{ current_variant.price | money }}</span>
   <label for="Quantity">quantity</label>
