@@ -1,4 +1,8 @@
-<div class="option-row">
+{% if value == blank %}
+  {% assign value = 1 %}
+{% endif %}
+
+<div class="quantity-picker js-quantity-picker">
 
   <label for="{{ id }}" class="option-title">{{ 'product.form.quantity' | t }}</label>
 
