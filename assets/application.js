@@ -1,4 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
+
+  // Currency Global Variables
   let
     moneySpanSelector = 'span.money',
     currencyPickerSelector = '[name=currencies]',
@@ -6,15 +8,15 @@ $(document).ready(function () {
     currencyNoteSelector = '.js-cart-currency-note';
 
   let currencyPicker = {
-    loadCurrency: function () {
+    loadCurrency: function() {
       /* Fix for customer account pages */
-      $(moneySpanSelector + ' ' + moneySpanSelector).each(function () {
+      $(moneySpanSelector + ' ' + moneySpanSelector).each(function() {
         $(this).parents(moneySpanSelector).removeClass('money');
       });
 
       /* Saving the current price */
-      $(moneySpanSelector).each(function () {
-        $(this).attr('data-currency-' + shopCurrency, $(this).html());
+      $(moneySpanSelector).each(function() {
+        $(this).attr('data-currency-'+shopCurrency, $(this).html());
       });
 
       // If there's no cookie.
@@ -27,7 +29,7 @@ $(document).ready(function () {
         }
       }
       // If the cookie value does not correspond to any value in the currency dropdown.
-      else if ($(currencyPickerSelector).length && $(currencyPickerSelector + 'option[value=' + cookieCurrency + ']').length === 0) {
+      else if ($(currencyPickerSelector).length && $(currencyPickerSelector + ' option[value=' + cookieCurrency + ']').length === 0) {
         Currency.currentCurrency = shopCurrency;
         Currency.cookie.write(shopCurrency);
       }
@@ -41,7 +43,7 @@ $(document).ready(function () {
 
       currencyPicker.setCurrencyText();
     },
-    onCurrencyChanged: function (event) {
+    onCurrencyChanged: function(event) {
       let
         newCurrency = $(this).val(),
         otherPickers = $(currencyPickerSelector).not($(this));
@@ -53,7 +55,7 @@ $(document).ready(function () {
         otherPickers.val(newCurrency);
       }
     },
-    setCurrencyText: function (newCurrency = Currency.currentCurrency) {
+    setCurrencyText: function(newCurrency = Currency.currentCurrency) {
       let
         activeCurrency = $(activeCurrencySelector),
         currencyNote = $(currencyNoteSelector);
@@ -70,11 +72,11 @@ $(document).ready(function () {
         }
       }
     },
-    onMoneySpanAdded: function () {
+    onMoneySpanAdded: function() {
       Currency.convertAll(shopCurrency, Currency.currentCurrency);
       currencyPicker.setCurrencyText();
     },
-    init: function () {
+    init: function() {
       if (showMultipleCurrencies !== true) {
         return false;
       }
@@ -93,7 +95,7 @@ $(document).ready(function () {
     productOptionSelector = addToCartFormSelector + ' [name*=option]';
 
   let productForm = {
-    onProductOptionChanged: function (event) {
+    onProductOptionChanged: function(event) {
       let
         form = $(this).closest(addToCartFormSelector),
         selectedVariant = productForm.getActiveVariant(form);
@@ -127,7 +129,7 @@ $(document).ready(function () {
         return selectedVariant;
 
     },
-    validate: function (event, selectedVariant) {
+    validate: function(event, selectedVariant) {
       let  
         form = $(this),
         hasVariant = selectedVariant !== null,
