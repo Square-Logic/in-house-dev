@@ -1,0 +1,5 @@
+<form action="/search" method="get" role="search">
+  <label for="search-term">{{ label }}</label>
+  <input id="search-term" type="search" name="q" value="{{ search.terms | escape }}">
+  <button type="submit">search</button>
+</form>
