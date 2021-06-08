@@ -186,10 +186,9 @@ $(document).ready(function () {
       let
         removeLink = $(this),
         removeQuery = removeLink.attr('href').split('change?')[1];
-        $.post('/cart/change.js', removeQuery, onCartUpdated, 'json');
+        $.post('/cart/change.js', removeQuery, ajaxify.onCartUpdated, 'json');
     },
     onCartUpdated: function() {
-      console.log('cart is updated');
       $.ajax({
         type: 'GET',
         url: '/cart',
@@ -204,6 +203,7 @@ $(document).ready(function () {
 
           cartItemCount.text(dataCartItemCount);
           miniCartContents.html(dataCartHtml);
+          currencyPicker.onMoneySpanAdded();
           
           if (parseInt(dataCartItemCount) > 0) {
             ajaxify.openCart();
@@ -213,19 +213,19 @@ $(document).ready(function () {
         }
       });
     },
-    // onError: function(XMLHttpRequest, textStatus) {
-    //   let data = XMLHttpRequest.responseJSON;
-    //   alert(data.status + ' - ' + data.message + ': ' + data.description);
-    // },
+    onError: function(XMLHttpRequest, textStatus) {
+      let data = XMLHttpRequest.responseJSON;
+      alert(data.status + ' - ' + data.message + ': ' + data.description);
+    },
     onCartButtonClick: function(event) {
       event.preventDefault();
 
       let isCartOpen = $('html').hasClass('mini-cart-open');
 
       if (!isCartOpen) {
-        this.openCart();
+        ajaxify.openCart();
       } else {
-        this.closeCart();
+        ajaxify.closeCart();
       }
     },
     openCart: function() {
@@ -236,6 +236,10 @@ $(document).ready(function () {
     },
     init: function() {
       $(document).on('submit', addToCartFormSelector, ajaxify.onAddToCart);
+
+      $(document).on('click', '#mini-cart .js-remove-line', ajaxify.onLineRemoved);
+
+      $(document).on('click', '.js-cart-link', ajaxify.onCartButtonClick);
     }
   };
 
