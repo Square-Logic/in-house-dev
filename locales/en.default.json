@@ -22,8 +22,10 @@
   },
   "collection": {
     "sort": {
-      "price_low_hight": "Price, $-$$$",
-      "price_high_low": "$$$-$"
+      "title": "Sort",
+      "price_low_high": "Price, $-$$$",
+      "price_high_low": "Price, $$$-$",
+      "clear": "Clear"
     }
   },
   "cart": {
