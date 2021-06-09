@@ -45,7 +45,8 @@
   },
   "product": {
     "card": {
-      "options": "{{ optionCount }} options / {{ styleCount }} styles"
+      "options_styles_singular": "{{ optionCount }} option / {{ styleCount }} styles",
+      "options_styles_plural": "{{ optionCount }} options / {{ styleCount }} styles"
     },
     "slider": {
       "count": "{{ slideStart }} of {{ slideTotal }}"
