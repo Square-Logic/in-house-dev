@@ -61,5 +61,12 @@
       "quantity": "Quantity",
       "sold_out": "Sold Out"
     }
+  },
+  "search": {
+    "form": {
+      "label": "Search In-House",
+      "placeholder": "Your search term",
+      "submit": "Submit"
+    }
   }
 }

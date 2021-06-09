@@ -345,6 +345,20 @@ $(document).ready(function() {
 
     lineItem.init();
 
+    // Search Input
+    let
+      searchInputSelector = '.js-search-input',
+      searchSubmitSelector = '.js-search-submit',
+      onSearchInputKeyup = function (event) {
+        let
+          form = $(this).closest('form'),
+          button = form.find(searchSubmitSelector),
+          shouldDisablebutton = this.value.length === 0;
+
+        button.prop('disabled', shouldDisablebutton);
+      };
+
+      $(document).on('keyup', searchInputSelector, onSearchInputKeyup);
 
 });
 
