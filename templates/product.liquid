@@ -32,6 +32,32 @@
     </div>
   </div>
   <!-- End Product Top -->
+
+  <!-- Begin Product Bottom -->
+  <div id="product-botton">
+
+    <div class="info-section description">
+      <h3>{{ 'product.description.title' | t }}</h3>
+      <div class="product-description">{{ product.description }}</div>
+    </div>
+
+    <div class="shipping-returns">
+      <div class="info-section shipping">
+        <h4>{{ 'product.shipping.title' | t }}</h4>
+        <p>{{ 'product.shipping.content' | t }}</p>
+      </div>
   
-  <div>{{ product.description }}</div>
+      <div class="info-section returns">
+        <h4>{{ 'product.returns.title' | t }}</h4>
+        <p>{{ 'product.returns.content' | t }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Product Bottom -->
+
+  {% if collection %}
+    {% include 'product-more' with collection: collection, limit: 2, exclude: product.handle %}
+  {% endif %}
+  
 </div>
