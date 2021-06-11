@@ -1,13 +1,9 @@
-#mini-cart {
-  display: none;
-}
+// Global Styles
+// @import 'global/';
 
-html.mini-cart-open {
-  #mini-cart {
-    display: block;
-  }
+// Snippets
+@import 'snippets/mini-cart';
 
-  main {
-    opacity: 0.3;
-  }
-}
+// Sections
+
+// Templates
