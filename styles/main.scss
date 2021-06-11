@@ -1,5 +1,11 @@
 // Global Styles
-// @import 'global/';
+@import 'global/variables';
+@import 'global/functions';
+@import 'global/mixins';
+@import 'global/base';
+@import 'global/styleguide';
+@import 'global/layout';
+@import 'global/utils';
 
 // Snippets
 @import 'snippets/mini-cart';
