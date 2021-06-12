@@ -1,0 +1,35 @@
+#header-global {
+  width: 100%;
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: $offset-global;
+  background: $white;
+  z-index: 1;
+  @include flex-space-between;
+
+  .logo {
+    font-size: 55px;
+  }
+}
+
+.header-nav-list {
+  margin-left: $offset-global;
+  display: inline-block;
+  li {
+    display: inline-block;
+    &:not(:first-of-type) {
+      margin-left: $line-global;
+    }
+  }
+}
+
+.header-right {
+  > * {
+    display: inline-block;
+    &:not(:first-child) {
+      margin-left: $line-global;
+    }
+  }
+}

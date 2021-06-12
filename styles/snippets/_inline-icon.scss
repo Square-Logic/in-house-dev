@@ -1,0 +1,10 @@
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: inherit;
+  width: 1em;
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
