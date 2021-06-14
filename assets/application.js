@@ -220,13 +220,17 @@ $(document).ready(function() {
     onCartButtonClick: function(event) {
       event.preventDefault();
 
-      let isCartOpen = $('html').hasClass('mini-cart-open');
+      let 
+        isCartOpen = $('html').hasClass('mini-cart-open'),
+        isInCart = window.location.href.indexOf('/cart') !== -1;
 
-      if (!isCartOpen) {
-        ajaxify.openCart();
-      } else {
-        ajaxify.closeCart();
-      }
+      if (!isInCart) {
+        if (!isCartOpen) {
+          ajaxify.openCart();
+        } else {
+          ajaxify.closeCart();
+        }
+      }    
     },
     openCart: function() {
       $('html').addClass('mini-cart-open');
