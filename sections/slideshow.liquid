@@ -4,7 +4,7 @@
 
       {% if block.settings.image != blank %}
       <div class="slide-image">
-        <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.image.alt }}">
+        <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
       </div>
       {% endif %}
 
