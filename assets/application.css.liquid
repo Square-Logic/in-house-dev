@@ -122,7 +122,7 @@ p, .quantity-picker button {
   line-height: 20px;
 }
 
-.p-large, #page-product .description p, #page-product .description .quantity-picker button, .quantity-picker #page-product .description button {
+.p-large, #page-product .description p, #page-product .description .quantity-picker button, .quantity-picker #page-product .description button, .search-form #search-term {
   font-family: "Plex Mono", "Courier New", Courier, monospace;
   font-size: 31px;
   line-height: 40px;
@@ -764,6 +764,42 @@ input[type=radio]:checked + label .option-color .option-color-inner:after {
   grid-column: auto;
   -ms-grid-row: 1;
   grid-row: 1;
+}
+
+.search-form {
+  position: relative;
+}
+.search-form #search-term {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  color: #000000;
+}
+.search-form #search-term:focus {
+  border-bottom-color: #000000;
+}
+.search-form button {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  width: auto;
 }
 
 #page-collection #collection-image {
