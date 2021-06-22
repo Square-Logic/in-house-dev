@@ -8,6 +8,10 @@
     grid-row: 1;
   }
 
+  .collection-description {
+    margin-top: 20px;
+  }
+
   .product-card {
     &:nth-of-type(odd) {
       grid-column: 3/7;
