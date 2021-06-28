@@ -7,7 +7,7 @@
   padding: $line-global $offset-global;
   background: $white;
   z-index: 2;  
-  @include flex-space-between;
+  @include flex-space-between;  
 
   .link-logo {
     color: $black;
