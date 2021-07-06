@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }}
   <!-- Header hook for plugins -->
-  {{ 'application.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'application.css' | asset_url | stylesheet_tag }}" defer="defer"></script>
 
 </head>
 
@@ -30,15 +30,15 @@
 
   <div id="no-click"></div>
 
-  {{ "jquery-3.6.0.min.js" | asset_url | script_tag }}
+  <script src="{{ jquery-3.6.0.min.js | asset_url | script_tag }}" defer="defer"></script>
   {% if settings.show_multiple_currencies %}
-  {{ "//cdn.shopify.com/s/javascripts/currencies.js" | asset_url | script_tag }}
-  {{ "jquery.currencies.min.js" | asset_url | script_tag }}
+  <script src="{{ //cdn.shopify.com/s/javascripts/currencies.js | asset_url | script_tag }}" defer="defer"></script>
+  <script src="{{ jquery.currencies.min.js | asset_url | script_tag }}" defer="defer"></script>
   {% endif %}
 
   {% include 'currencies' %}
-  {{ 'slick.min.js' | asset_url | script_tag }}
-  {{ 'application.js' | asset_url | script_tag }}
+  <script src="{{ 'slick.min.js' | asset_url | script_tag }}" defer="defer"></script>
+  <script src="{{ 'application.js' | asset_url | script_tag }}" defer="defer"></script>
 </body>
 
 </html>
