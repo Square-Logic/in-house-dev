@@ -32,7 +32,7 @@
 
   {{ "jquery-3.6.0.min.js" | asset_url | script_tag }}
   {% if settings.show_multiple_currencies %}
-  {{ "//cdn.shopify.com/s/javascripts/currencies.js" | script_tag }}
+  {{ "//cdn.shopify.com/s/javascripts/currencies.js" | asset_url | script_tag }}
   {{ "jquery.currencies.min.js" | asset_url | script_tag }}
   {% endif %}
 
