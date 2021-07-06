@@ -29,7 +29,7 @@
       <div class="slides js-slides">
         {% for image in product.images %}
         <div class="single-image">
-          <img src="{{ image.src | img_url: '600x' }}" alt="{{ image.alt | escape }}">
+          <img src="{{ image.src | img_url: '600x' }}" loading="lazy" alt="{{ image.alt | escape }}">
         </div>
         {% endfor %}
       </div>

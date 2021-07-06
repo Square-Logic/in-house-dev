@@ -2,7 +2,7 @@
   <a class="link-to-product" href="{{ product.url | within: collection }}">
     {% if product.featured_image %}
       <div class="card-image">
-        <img src="{{ product.featured_image.src | img_url: '750x1000', crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}">
+        <img src="{{ product.featured_image.src | img_url: '750x1000', crop: 'center' }}" loading="lazy" alt="{{ product.featured_image.alt | escape }}">
       </div>
     {% endif %}
 

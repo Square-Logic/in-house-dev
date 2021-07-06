@@ -3,7 +3,7 @@
   
     {% if section.settings.image != blank %}
       <div class="image">
-        <img src="{{ section.settings.image | img_url: '1280x' }}" alt="{{ section.settings.image.alt }}">
+        <img src="{{ section.settings.image | img_url: '1280x' }}" loading="lazy" alt="{{ section.settings.image.alt }}">
       </div>
     {% endif %}
   
