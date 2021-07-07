@@ -1,4 +1,4 @@
-{% assign value_handle = value | | handleize %}
+{% assign value_handle = value | handleize %}
 {% assign color_translation_key = 'product.colors.' | append: value_handle %}
 {% assign color_hex = color_translation_key | t %}
 
