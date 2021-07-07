@@ -6,7 +6,6 @@
 {% assign returns = 'product.returns.content' | t %}
 {% if product.description contains '---' %}
   {% assign description = product.description | split: '---' | first %}
-  {% assign description_array = product.description | split: '---' %}
 
   {% assign productInfoKeys = 'Shipping|Returns' | split: '|' %}
   {% for key in productInfoKeys %}
