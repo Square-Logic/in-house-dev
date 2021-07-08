@@ -30,10 +30,10 @@
 
   <div id="no-click"></div>
 
-  <script src="{{ jquery-3.6.0.min.js | asset_url }}" defer="defer"></script>
+  <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
   {% if settings.show_multiple_currencies %}
-  <script src="{{ //cdn.shopify.com/s/javascripts/currencies.js | asset_url }}" defer="defer"></script>
-  <script src="{{ jquery.currencies.min.js | asset_url }}" defer="defer"></script>
+    <script src="{{ 'currencies.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'jquery.currencies.min.js' | asset_url }}" defer="defer"></script>
   {% endif %}
 
   {% include 'currencies' %}
