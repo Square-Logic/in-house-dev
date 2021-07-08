@@ -8,12 +8,14 @@
   {% if search.performed %}
     <div id="search-results" class="wrapper grid">
       <div class="results-inner">
-        {% assign product_count = 0 | times: 1 %}
-        {% for item in search.results %}
-          {% if item.object_type == 'product' %}
-            {% assign product_count = product_count | plus: 1 %}
-          {% endif %}
-        {% endfor %}
+        {%- liquid
+           assign product_count = 0 | times: 1
+           for item in search.results
+             if item.object_type == 'product'
+               assign product_count = product_count | plus: 1
+             endif
+           endfor 
+        -%}
   
         {% if product_count > 0 %}
           {% assign filled_singular = 'search.results.filled_singular' | t %}
