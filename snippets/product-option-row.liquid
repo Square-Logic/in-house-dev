@@ -12,7 +12,7 @@
             <option value="{{ value }}" {% if value == selected %}selected{% endif %}>{{ value }}</option>
           {% endfor %}
         </select>
-        {% include 'inline-icon' with svg: 'icon-arrow-down.svg', class: 'current-color-stroke' %}
+        {% render 'icon-arrow-down', class: 'current-color-stroke' %}
       </div>
 
     {% else %}
@@ -21,8 +21,8 @@
       {% assign radio_id = 'option-' | append: option_name | append: '-' | append: value | handleize %}
         <input class="variant-radio" id="{{ radio_id }}" type="radio" name="{{ option_name }}" value="{{ value }}" {% if value == selected %}checked{% endif %}>
         <label for="{{ radio_id }}">
-          {% if force_colors == true %}
-            {% include 'option-color' with color: value %}
+          {% if force_colors == true %}            
+            {% render 'option-color', value: value %}
           {% else %}
             {{ value }}
           {% endif %}
