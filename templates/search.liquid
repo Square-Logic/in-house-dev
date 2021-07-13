@@ -26,7 +26,7 @@
           <div class="results-grid grid two-columns">
             {% for item in search.results %}
               {% if item.object_type == 'product' %}
-                {% include 'product-card' with product: item %}
+                {% render 'product-card', product: item %}
               {% endif %}
             {% endfor %}
           </div>
