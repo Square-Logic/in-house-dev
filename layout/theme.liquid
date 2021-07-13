@@ -19,7 +19,7 @@
   {% section 'header' %}
 
   {% if template != 'cart' %}
-    {% include 'mini-cart' %}
+    {% render 'mini-cart' %}
   {% endif %}
 
   <main role="main">
@@ -30,15 +30,15 @@
 
   <div id="no-click"></div>
 
-  <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}"></script>
   {% if settings.show_multiple_currencies %}
-    <script src="{{ 'currencies.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'jquery.currencies.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'currencies.js' | asset_url }}" ></script>
+    <script src="{{ 'jquery.currencies.min.js' | asset_url }}"></script>
   {% endif %}
 
-  {% include 'currencies' %}
-  <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'application.js' | asset_url }}" defer="defer"></script>
+  {% render 'currencies' %}
+  <script src="{{ 'slick.min.js' | asset_url }}" ></script>
+  <script src="{{ 'application.js' | asset_url }}"></script>
 </body>
 
 </html>
