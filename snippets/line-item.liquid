@@ -31,7 +31,7 @@
 
     <div class="info-actions">
       {% assign quantity_id = 'updates_' | append: item.key %}
-      {% include 'quantity-picker' with name: 'updates[]', id: quantity_id, value: item.quantity, min: 0, max: item.variant.inventory_quantity, field_class: 'js-line-quantity' %}
+      {% render 'quantity-picker' with name: 'updates[]', id: quantity_id, value: item.quantity, min: 0, max: item.variant.inventory_quantity, field_class: 'js-line-quantity' %}
 
       <a class="js-remove-line" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
         {% render 'icon-x', alt: 'Remove' %}
