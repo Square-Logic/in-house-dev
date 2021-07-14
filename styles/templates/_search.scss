@@ -16,6 +16,7 @@
 
   #search-results {
     margin-top: $offset-global;
+    margin-bottom: $offset-global;
     grid-template-columns: repeat(12, 1fr);
   }
 
